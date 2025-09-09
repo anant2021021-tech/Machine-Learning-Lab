@@ -1,0 +1,26 @@
+x = [0,1,2,3,3,5,5,6,7,7,10,5]
+y = [96,85,82,74,95,68,76,58,65,75,50,84]
+
+n = len(x)
+
+ttl_x = 0
+ttl_y = 0
+ttl_xy = 0
+ttl_x2 = 0
+
+for i in range(n):
+    ttl_x += x[i]
+    ttl_y += y[i]
+    ttl_xy += x[i] * y[i]
+    ttl_x2 += x[i] ** 2
+
+
+slope = ((n * ttl_xy) - (ttl_x * ttl_y)) / ((n * ttl_x2) - (ttl_x ** 2))
+intercept = (ttl_y - (slope * ttl_x)) / n
+
+
+hrs = float(input("Enter number of hours to predict? "))
+
+res = slope * hrs + intercept
+
+print("The predicted marks are:", res)
